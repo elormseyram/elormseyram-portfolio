@@ -7,8 +7,10 @@ const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const roles = [
     'UI/UX Designer',
-    'Front-End Developer',
+    'Front-End Developer', 
     'Mobile App Builder',
+    'Backend Developer',
+    'Content Creator',
     'Creative Problem Solver'
   ];
 
@@ -29,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

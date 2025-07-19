@@ -23,7 +23,9 @@ const About = () => {
     { name: 'Flutter', icon: Smartphone, color: 'text-secondary' },
     { name: 'JavaScript', icon: Zap, color: 'text-accent' },
     { name: 'Firebase', icon: Database, color: 'text-primary' },
-    { name: 'Framer', icon: Globe, color: 'text-secondary' },
+    { name: 'Node.js', icon: Globe, color: 'text-secondary' },
+    { name: 'MongoDB', icon: Database, color: 'text-accent' },
+    { name: 'Content Creation', icon: Layers, color: 'text-primary' },
   ];
 
   useEffect(() => {
@@ -64,21 +66,23 @@ const About = () => {
               </h3>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a passionate <span className="text-accent font-medium">UI/UX Designer</span> and 
-                  <span className="text-secondary font-medium"> Front-End Developer</span> based in Tema, Ghana. 
+                  I'm a passionate <span className="text-accent font-medium">UI/UX Designer</span>, 
+                  <span className="text-secondary font-medium">Full-Stack Developer</span>, and 
+                  <span className="text-primary font-medium">Content Creator</span> based in Tema, Ghana. 
                   I create digital experiences that are not just visually stunning, but also highly functional 
                   and user-centered.
                 </p>
                 <p>
                   With expertise spanning from <span className="text-primary font-medium">design thinking</span> to 
-                  <span className="text-accent font-medium"> mobile app development</span>, I bridge the gap 
+                  <span className="text-accent font-medium">backend development</span> and 
+                  <span className="text-secondary font-medium">content creation</span>, I bridge the gap 
                   between creative vision and technical implementation. My work combines beautiful aesthetics 
-                  with smooth performance.
+                  with smooth performance and engaging content.
                 </p>
                 <p>
-                  When I'm not crafting pixel-perfect interfaces or writing clean code, you'll find me 
-                  exploring the latest design trends and pushing the boundaries of what's possible in 
-                  <span className="text-secondary font-medium"> digital innovation</span>.
+                  When I'm not crafting pixel-perfect interfaces, building robust backends, or creating engaging content, 
+                  you'll find me playing basketball, listening to music, or exploring the latest trends in 
+                  <span className="text-secondary font-medium">digital innovation</span>.
                 </p>
               </div>
             </Card>
@@ -136,14 +140,19 @@ const About = () => {
                 badge: 'Design'
               },
               {
-                title: 'Front-End Development',
-                description: 'Building responsive, performant web applications with modern technologies and best practices.',
+                title: 'Full-Stack Development',
+                description: 'Building complete web applications from frontend to backend with modern technologies.',
                 badge: 'Development'
               },
               {
                 title: 'Mobile Apps',
                 description: 'Developing cross-platform mobile applications that provide native-like experiences.',
                 badge: 'Mobile'
+              },
+              {
+                title: 'Content Creation',
+                description: 'Creating engaging content that tells stories and connects with audiences across platforms.',
+                badge: 'Content'
               }
             ].map((specialty, index) => (
               <Card key={specialty.title} className="glass-card p-6 glow-border">
