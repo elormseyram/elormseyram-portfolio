@@ -5,7 +5,9 @@ import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import ecotrackImg from '@/assets/project-ecotrack.jpg';
 import fintechImg from '@/assets/project-fintech.jpg';
-import wellnessImg from '@/assets/project-wellness.jpg';
+import ticketmateImg from '@/assets/ticketmate.jpg';
+import biciImg from '@/assets/notifications, bici.jpg';
+import plugImg from '@/assets/plug in chill out .jpg';
 import ecommerceImg from '@/assets/project-ecommerce.jpg';
 
 const Projects = () => {
@@ -35,44 +37,33 @@ const Projects = () => {
       }
     },
     {
-      title: 'Health & Wellness Platform',
-      description: 'Complete wellness platform featuring workout tracking, nutrition planning, and mental health resources. Designed for accessibility and user engagement.',
-      tech: ['React', 'Node.js', 'PostgreSQL', 'Content Creation'],
-      category: 'Full Stack',
-      image: wellnessImg,
+      title: 'TicketMate - Event Booking App',
+      description: 'A seamless event booking app for discovering, booking, and managing events. Built with Figma (UI/UX), React Native, Postman, Firebase, and Paystack for secure payments.',
+      tech: ['Figma', 'React Native', 'Postman', 'Firebase', 'Paystack'],
+      category: 'Mobile App',
+      image: ticketmateImg,
       links: {
         live: '#',
         github: '#'
       }
     },
     {
-      title: 'E-Commerce Redesign',
-      description: 'Complete UI/UX redesign of a major e-commerce platform, focusing on improving conversion rates and user experience through data-driven design decisions.',
-      tech: ['Figma', 'Prototyping', 'User Research', 'Content Strategy'],
-      category: 'UI/UX Design',
-      image: ecommerceImg,
-      links: {
-        live: '#',
-        github: '#'
-      }
-    },
-    {
-      title: 'Social Media Management Tool',
-      description: 'Full-stack application for content creators to schedule posts, analyze engagement, and manage multiple social media accounts from one dashboard.',
-      tech: ['React', 'Express.js', 'MongoDB', 'Social APIs'],
-      category: 'Full Stack',
-      image: ecotrackImg,
-      links: {
-        live: '#',
-        github: '#'
-      }
-    },
-    {
-      title: 'Educational Content Platform',
-      description: 'Interactive learning platform with video courses, quizzes, and progress tracking. Built with accessibility and mobile-first design principles.',
-      tech: ['Vue.js', 'Node.js', 'Firebase', 'Content Creation'],
+      title: 'Bici - Gamified Menstrual App',
+      description: 'A gamified menstrual health app for local communities. UI/UX designed in Figma and web app built with Flutter to educate and engage users in a fun, interactive way.',
+      tech: ['Figma', 'Flutter'],
       category: 'Web App',
-      image: fintechImg,
+      image: biciImg,
+      links: {
+        live: '#',
+        github: '#'
+      }
+    },
+    {
+      title: 'Plug In Chill Out - Charger Flyer Design',
+      description: 'A vibrant flyer design for promoting charger sales, created to attract attention and drive engagement. Designed in Figma for a modern, tech-focused look.',
+      tech: ['Figma', 'Graphic Design'],
+      category: 'Design',
+      image: plugImg,
       links: {
         live: '#',
         github: '#'

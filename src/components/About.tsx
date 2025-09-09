@@ -16,7 +16,7 @@ const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const skills = [
-    { name: 'UI/UX Design', icon: Palette, color: 'text-primary' },
+    { name: 'Canva', icon: Palette, color: 'text-primary' },
     { name: 'Figma', icon: Figma, color: 'text-secondary' },
     { name: 'HTML/CSS', icon: Code2, color: 'text-accent' },
     { name: 'React', icon: Layers, color: 'text-primary' },
@@ -66,22 +66,22 @@ const About = () => {
               </h3>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a passionate <span className="text-accent font-medium">UI/UX Designer</span>, 
-                  <span className="text-secondary font-medium">Full-Stack Developer</span>, and 
-                  <span className="text-primary font-medium">Content Creator</span> based in Tema, Ghana. 
+                  I'm a passionate <span className="text-accent font-medium">UI/UX Designer</span>,{' '}
+                  <span className="text-secondary font-medium">Full-Stack Developer</span>,{' '}
+                  and <span className="text-primary font-medium">Content Creator</span> based in Tema, Ghana. 
                   I create digital experiences that are not just visually stunning, but also highly functional 
                   and user-centered.
                 </p>
                 <p>
-                  With expertise spanning from <span className="text-primary font-medium">design thinking</span> to 
-                  <span className="text-accent font-medium">backend development</span> and 
-                  <span className="text-secondary font-medium">content creation</span>, I bridge the gap 
+                  With expertise spanning from <span className="text-primary font-medium">design thinking</span> to{' '}  
+                   <span className="text-accent font-medium">backend development</span> and {' '}
+                   <span className="text-secondary font-medium">content creation</span>, I bridge the gap 
                   between creative vision and technical implementation. My work combines beautiful aesthetics 
                   with smooth performance and engaging content.
                 </p>
                 <p>
                   When I'm not crafting pixel-perfect interfaces, building robust backends, or creating engaging content, 
-                  you'll find me playing basketball, listening to music, or exploring the latest trends in 
+                  you'll find me playing basketball, listening to music, or exploring the latest trends in {' '}
                   <span className="text-secondary font-medium">digital innovation</span>.
                 </p>
               </div>
@@ -114,8 +114,8 @@ const About = () => {
         <div className="mt-16 scroll-reveal">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { number: '50+', label: 'Projects Completed' },
-              { number: '3+', label: 'Years Experience' },
+              { number: '10+', label: 'Projects Completed' },
+              { number: '2+', label: 'Years Experience' },
               { number: '100%', label: 'Client Satisfaction' },
               { number: '24/7', label: 'Availability' },
             ].map((stat, index) => (

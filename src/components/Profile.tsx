@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
-import profilePicture from '@/assets/profile-picture.jpg';
+import codefest4 from '@/assets/codefest4.jpg';
 
 const Profile = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,7 +51,7 @@ const Profile = () => {
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 
                             shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-primary/50">
                 <img 
-                  src={profilePicture} 
+                  src={codefest4} 
                   alt="Senu Seyram Elorm Adzo - UI/UX Designer & Developer"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
