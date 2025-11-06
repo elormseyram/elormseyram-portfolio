@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Sparkles, Gamepad2, Send, Paperclip, Icon } from 'lucide-react';
+import { ArrowDown, Sparkles, Gamepad2, Send, Paperclip, AlertTriangle } from 'lucide-react';
 import codefest4 from '@/assets/codefest4.jpg';
 
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const roles = [
     'UI/UX Designer',
-    'Front-End Developer', 
+    'Front-End Developer',
     'Mobile App Builder',
     'QA Engineer',
     'Content Writer',
@@ -119,10 +119,12 @@ const Hero = () => {
                   <Gamepad2 className="w-4 h-4 ml-2" />
                 </Button>
               </div>
-             <p className="mt-2 text-sm sm:text-base text-foreground/80">
-                
-                Disclaimer
-              </p>
+              <div className="mt-4 flex items-start gap-2 text-foreground/70">
+                <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-1" />
+                <p className="text-sm">
+                  <strong>Disclaimer:</strong> I specialize in Flutter & Dart mobile app development and UI/UX designing using Figma, but I have experience and knowledge in other roles as well.
+                </p>
+              </div>
             </div>
           </div>
         </div>

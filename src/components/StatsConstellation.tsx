@@ -39,7 +39,7 @@ const StatsConstellation = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-4xl font-bold">Impact in <span className="text-highlight">Numbers</span></h2>
-          <p className="text-sm sm:text-base text-muted-foreground mt-2">Hover for pink trails ✨</p>
+          <p className="text-sm sm:text-base text-muted-foreground mt-2">For the people and by the people ✨</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <StatItem label="Products designed" value="05+" icon={Rocket} />
