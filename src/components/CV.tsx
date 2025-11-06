@@ -22,9 +22,9 @@ const CV = () => {
 
   const skillsData = [
     { name: 'Design', value: 85 },
-    { name: 'Development', value: 70 },
-    { name: 'QA Testing', value: 80 },
-    { name: 'Communication', value: 90 },
+    { name: 'Coding', value: 70 },
+    { name: 'QA', value: 80 },
+    { name: 'Interaction', value: 90 },
   ];
 
   const handleDownloadPDF = () => {
@@ -171,7 +171,7 @@ const CV = () => {
           {/* Skills Chart */}
           <Card className="glass-card p-4 sm:p-6">
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Skill Proficiency</h3>
-            <div className="w-full" style={{ minHeight: '180px' }}>
+            <div className="w-full flex justify-center" style={{ minHeight: '200px' }}>
               <ResponsiveContainer width="100%" height={180}>
                 <PieChart>
                   <Pie
@@ -180,11 +180,12 @@ const CV = () => {
                     cy="50%"
                     labelLine={false}
                     label={({ name, value }) => `${name}\n${value}%`}
-                    outerRadius={60}
-                    innerRadius={34}
+                    outerRadius={50}
+                    innerRadius={25}
                     fill="#8884d8"
                     dataKey="value"
-                    paddingAngle={0}
+                    paddingAngle={0.5}
+                    
                   >
                     {skillsData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -201,7 +202,7 @@ const CV = () => {
                   />
                   <Legend
                     wrapperStyle={{ fontSize: '10px', paddingTop: '8px' }}
-                    iconType="circle"
+                    iconType="star"
                     verticalAlign="bottom"
                     height={28}
                   />

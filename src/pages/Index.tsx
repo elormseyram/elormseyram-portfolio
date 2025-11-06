@@ -12,7 +12,7 @@ import Navigation from '@/components/Navigation';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative-content">
+    <div className="min-h-screen bg-background relative-content overflow-hidden">
       <Navigation />
       <ProgressIndicator />
       <div id="hero"><Hero /></div>

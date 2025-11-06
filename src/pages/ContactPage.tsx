@@ -106,7 +106,7 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background relative-content">
+    <div className="min-h-screen bg-background relative-content overflow-hidden">
       <Navigation />
       <section ref={sectionRef} className="py-20 px-6 relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">

@@ -9,7 +9,7 @@ import { FileText, User } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background relative-content">
+    <div className="min-h-screen bg-background relative-content overflow-hidden">
       <Navigation />
       <div className="pt-20 pb-8 sm:pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">

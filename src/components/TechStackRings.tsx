@@ -10,7 +10,7 @@ const TechStackRings = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-4xl font-bold">Tools in My <span className="text-highlight">Orbit</span></h2>
-          <p className="text-sm sm:text-base text-muted-foreground mt-2">Hover for a pink radar ping</p>
+          <p className="text-sm sm:text-base text-muted-foreground mt-2">Hover/Tap for a pink radar ping</p>
         </div>
         <Card className="glass-card p-8">
           <div

@@ -91,7 +91,7 @@ const ProcessPage = () => {
         newObstacles.push({
           id: i,
           x: baseX,
-          height: 40 + Math.random() * 30 // Smaller obstacles (40-70 instead of 60-100)
+          height: 120 + Math.random() * 30 // Smaller obstacles (120-150 instead of 90-120)
         });
       }
     }
@@ -157,6 +157,21 @@ const ProcessPage = () => {
     };
   }, [gameStarted, gameOver, player.onGround]);
 
+  // Touch controls for mobile
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      e.preventDefault();
+      if (gameStarted && !gameOver && player.onGround) {
+        setPlayer(prev => ({ ...prev, velocityY: -22, jumping: true, onGround: false }));
+      }
+    };
+
+    canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+    return () => canvas.removeEventListener('touchstart', handleTouchStart);
+  }, [gameStarted, gameOver, player.onGround]);
   // Game loop
   useEffect(() => {
     if (!gameStarted || gameOver || showCard) return;
@@ -454,7 +469,7 @@ const ProcessPage = () => {
                     </Button>
                   </div>
                   <div className="text-xs sm:text-sm text-muted-foreground">
-                    Use Arrow Keys or WASD to move • Space to jump
+                    Use Arrow Keys or WASD to move • Tap to jump • Unlock all steps below to complete the game!
                   </div>
                 </div>
 

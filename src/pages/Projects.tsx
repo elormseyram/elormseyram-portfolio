@@ -269,7 +269,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background relative-content">
+    <div className="min-h-screen bg-background relative-content overflow-hidden">
       <Navigation />
       <section ref={sectionRef} className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -314,7 +314,7 @@ const Projects = () => {
             onValueChange={setActiveCategory}
             className="mb-8"
           >
-            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-3 sm:grid-cols-5 bg-card/80 backdrop-blur-xl border border-border/50 p-1 gap-1">
+            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-3 sm:grid-cols-5 bg-card/80 backdrop-blur-xl border border-border/50 p-1 gap-1 h-auto flex">
               <TabsTrigger value="all" className="text-xs sm:text-sm">
                 <span className="hidden sm:inline">All Projects</span>
                 <span className="sm:hidden">All</span>
