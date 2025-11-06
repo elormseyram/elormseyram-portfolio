@@ -314,27 +314,27 @@ const Projects = () => {
             onValueChange={setActiveCategory}
             className="mb-8"
           >
-            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 bg-card/80 backdrop-blur-xl border border-border/50 p-1 gap-1">
+            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-3 sm:grid-cols-5 bg-card/80 backdrop-blur-xl border border-border/50 p-1 gap-1">
               <TabsTrigger value="all" className="text-xs sm:text-sm">
                 <span className="hidden sm:inline">All Projects</span>
                 <span className="sm:hidden">All</span>
               </TabsTrigger>
               <TabsTrigger value="UI/UX Design" className="text-xs sm:text-sm">
                 <Palette className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                <span className="hidden lg:inline">UI/UX</span>
-                <span className="lg:hidden">UX</span>
+                <span className="hidden sm:inline">UI/UX</span>
+                <span className="sm:hidden">UX</span>
               </TabsTrigger>
               <TabsTrigger value="Frontend" className="text-xs sm:text-sm">
                 <Code2 className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 <span className="hidden sm:inline">Frontend</span>
                 <span className="sm:hidden">FE</span>
               </TabsTrigger>
-              <TabsTrigger value="Backend" className="text-xs sm:text-sm">
+              <TabsTrigger value="Backend" className="text-xs sm:text-sm col-span-1">
                 <Database className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 <span className="hidden sm:inline">Backend</span>
                 <span className="sm:hidden">BE</span>
               </TabsTrigger>
-              <TabsTrigger value="Quality Assurance" className="text-xs sm:text-sm col-span-2 sm:col-span-1">
+              <TabsTrigger value="Quality Assurance" className="text-xs sm:text-sm col-span-1">
                 <CheckSquare className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 <span className="hidden sm:inline">QA</span>
                 <span className="sm:hidden">QA</span>

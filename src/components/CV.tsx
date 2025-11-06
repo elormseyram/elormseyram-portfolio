@@ -49,7 +49,7 @@ const CV = () => {
 
       {/* Professional Summary */}
       <Card className="glass-card p-4 sm:p-6 mb-4 sm:mb-6">
-        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">PROFESSIONAL SUMMARY</h2>
+        <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">PROFESSIONAL SUMMARY</h2>
 
         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
           A motivated Junior Software Engineer with a strong foundation in UI/UX design, frontend development, and quality assurance. I excel at translating design concepts into responsive, high-performance applications using technologies like React and Flutter. With hands-on experience in both freelance and team settings, I am adept at managing the full project lifecycle, from initial user research and wireframing in Figma to development, testing, and deployment. My background in QA ensures a commitment to delivering reliable, bug-free products. I am a collaborative problem-solver, passionate about building intuitive and user-centric digital experiences.
@@ -58,7 +58,7 @@ const CV = () => {
 
       {/* Websites, Portfolios, Profiles */}
       <Card className="glass-card p-4 sm:p-6 mb-4 sm:mb-6">
-        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">WEBSITES, PORTFOLIOS, PROFILES</h2>
+        <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">WEBSITES, PORTFOLIOS, PROFILES</h2>
         <ul className="space-y-2 text-xs sm:text-sm">
           <li className="flex items-start">
             <span className="text-highlight mr-2 flex-shrink-0">•</span>
@@ -83,7 +83,7 @@ const CV = () => {
 
       {/* Contact Information */}
       <Card className="glass-card p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4 text-highlight" />
             <a href="mailto:seyramsenu22@gmail.com" className="text-sm hover:text-highlight transition-colors">
@@ -119,7 +119,7 @@ const CV = () => {
         <div className="lg:col-span-1 space-y-6">
           {/* Skills */}
           <Card className="glass-card p-4 sm:p-6">
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">SKILLS</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">SKILLS</h2>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
                 <span className="text-highlight mr-2">•</span>
@@ -212,7 +212,7 @@ const CV = () => {
 
           {/* Education */}
           <Card className="glass-card p-4 sm:p-6 mb-4 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">EDUCATION</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">EDUCATION</h2>
             <div className="space-y-4">
               <div>
                 <h3 className="font-semibold">Kwame Nkrumah University of Science and Technology</h3>
@@ -231,7 +231,7 @@ const CV = () => {
 
           {/* Certifications */}
           <Card className="glass-card p-4 sm:p-6 mb-4 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">CERTIFICATIONS</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">CERTIFICATIONS</h2>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
                 <span className="text-highlight mr-2">•</span>
@@ -258,7 +258,7 @@ const CV = () => {
 
           {/* Languages */}
           <Card className="glass-card p-4 sm:p-6 mb-4 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">LANGUAGES</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-highlight">LANGUAGES</h2>
             <div className="w-full" style={{ minHeight: '250px' }}>
               <ResponsiveContainer width="100%" height={250}>
                 <BarChart
@@ -307,7 +307,7 @@ const CV = () => {
 
           {/* Hobbies */}
           <Card className="glass-card p-6">
-            <h2 className="text-2xl font-bold mb-4 text-highlight">HOBBIES</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-4 text-highlight">HOBBIES</h2>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
                 <span className="text-highlight mr-2">•</span>
@@ -333,7 +333,7 @@ const CV = () => {
         <div className="lg:col-span-2 space-y-6">
           {/* Experience */}
           <Card className="glass-card p-6">
-            <h2 className="text-2xl font-bold mb-6 text-highlight">WORK HISTORY</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-6 text-highlight">WORK HISTORY</h2>
 
             {/* Freelancer - UI/UX Designer */}
             <div className="mb-6 pb-6 border-b border-border">
@@ -488,7 +488,7 @@ const CV = () => {
 
           {/* Accomplishments */}
           <Card className="glass-card p-6">
-            <h2 className="text-2xl font-bold mb-4 text-highlight">ACCOMPLISHMENTS</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-4 text-highlight">ACCOMPLISHMENTS</h2>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start">
                 <span className="text-highlight mr-2">•</span>
@@ -519,7 +519,7 @@ const CV = () => {
 
           {/* Leadership */}
           <Card className="glass-card p-6">
-            <h2 className="text-2xl font-bold mb-4 text-highlight">LEADERSHIP EXPERIENCES</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-4 text-highlight">LEADERSHIP EXPERIENCES</h2>
             <div className="space-y-4">
               <div>
                 <h3 className="font-semibold">Women's Commission General Secretary</h3>
@@ -536,7 +536,7 @@ const CV = () => {
 
           {/* References */}
           <Card className="glass-card p-6">
-            <h2 className="text-2xl font-bold mb-4 text-highlight">REFERENCES</h2>
+            <h2 className="text-lg sm:text-2xl font-bold mb-4 text-highlight">REFERENCES</h2>
             <div className="space-y-4 text-sm">
               <div>
                 <p className="font-semibold">Dr. Rev. Kwame Ofosuhene Peasah</p>

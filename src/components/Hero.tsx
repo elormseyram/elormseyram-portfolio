@@ -132,7 +132,7 @@ const Hero = () => {
         {/* Animated paper plane reacting to cursor */}
         <div
           ref={planeRef}
-          className="pointer-events-none fixed z-20"
+          className="pointer-events-none fixed z-20 hidden md:block"
           style={{ left: planePos.x, top: planePos.y, transform: 'translate(-50%, -50%)' }}
         >
           <div className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(255,30,142,0.6)] rotate-12">
