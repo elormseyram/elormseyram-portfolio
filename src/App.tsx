@@ -15,6 +15,13 @@ import EPunch from "./components/projects/EPunch";
 import YFEssentials from "./components/projects/YFEssentials";
 import Workbook from "./components/projects/Workbook";
 import NotFound from "./pages/NotFound";
+import TicketMate from './components/projects/TicketMate';
+import Bici from './components/projects/Bici';
+import CleanseGuru from './components/projects/CleanseGuru';
+import Chirp from './components/projects/Chirp';
+import AssetDashboard from './components/projects/AssetDashboard';
+import FlyerDesign from './components/projects/Flyer';
+
 
 const queryClient = new QueryClient();
 
@@ -36,6 +43,13 @@ const App = () => (
           <Route path="/projects/epunch" element={<EPunch />} />
           <Route path="/projects/yf-essentials" element={<YFEssentials />} />
           <Route path="/projects/workbook" element={<Workbook />} />
+          <Route path="/projects/ticketmate" element={<TicketMate />} />
+          <Route path="/projects/bici" element={<Bici />} />
+          <Route path="/projects/cleanseguru" element={<CleanseGuru />} />
+          <Route path="/projects/chirp" element={<Chirp />} />
+          <Route path="/projects/asset-dashboard" element={<AssetDashboard />} />
+          <Route path="/projects/flyer" element={<FlyerDesign />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

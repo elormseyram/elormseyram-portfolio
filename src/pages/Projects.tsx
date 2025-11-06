@@ -12,6 +12,12 @@ import milautoImg1 from '@/assets/images/milautodrive/Milauto Drive - Your Trust
 import epunchImg1 from '@/assets/images/epunch/flutter-mobileapp/photo_1_2025-11-05_10-55-19.jpg';
 import workbookImg from '@/assets/images/workbook/dashboard-worbook.jpg';
 import yfEssentialsImg from '@/assets/images/yf-essentials/yf-essentials-figmaprototype.mp4';
+import ticketmateImg from '@/assets/ticketmate.jpg';
+import biciImg from '@/assets/bici image.jpg';
+import cleanseGuruImg from '@/assets/cleanseguru.jpg';
+import chirpImg from '@/assets/chirp.jpg';
+import assetDashboardImg from '@/assets/assetdashboard.jpg';
+import flyerImg from '@/assets/flyer.jpg';
 
 interface Project {
   title: string;
@@ -59,7 +65,61 @@ const projects: Project[] = [
     image: yfEssentialsImg,
     route: '/projects/yf-essentials',
     company: 'Freelance'
-  }
+  },
+  {
+    title: 'TicketMate',
+    description: 'Designed a seamless ticket-booking experience for a school group project, focusing on user flow mapping, high-fidelity interface design, and accessibility.',
+    tech: ['Figma', 'UI/UX Design', 'User Flow', 'Prototyping'],
+    category: 'UI/UX Design',
+    image: ticketmateImg,
+    route: '/projects/ticketmate',
+    company: 'School Project'
+  },
+  {
+    title: 'Bici',
+    description: 'A gamified menstrual tracking app that rewards consistency and self-care. My role involved UX research, designing gamification mechanics, and creating a friendly UI system.',
+    tech: ['Figma', 'UI/UX Design', 'Gamification', 'User Research'],
+    category: 'UI/UX Design',
+    image: biciImg,
+    route: '/projects/bici',
+    company: 'Personal Project'
+  },
+  {
+    title: 'CleanseGuru',
+    description: 'A platform for booking cleaning services. As a QA Tester, I focused on functional bugs in booking/signup flows and ensured UI responsiveness across devices.',
+    tech: ['Jira', 'Manual Testing', 'QA', 'UI Testing'],
+    category: 'Quality Assurance',
+    image: cleanseGuruImg,
+    route: '/projects/cleanseguru',
+    company: 'School Project'
+  },
+  {
+    title: 'Chirp (Twitter Clone)',
+    description: 'Evaluated a social microblogging app for a school project. My testing focused on post creation, feed behavior, and API call validation to improve stability.',
+    tech: ['Manual Testing', 'QA Documentation', 'API Testing'],
+    category: 'Quality Assurance',
+    image: chirpImg,
+    route: '/projects/chirp',
+    company: 'School Project'
+  },
+  {
+    title: 'Asset Management Dashboard',
+    description: 'Designed an enterprise dashboard for tracking organizational assets, featuring a clear, data-driven interface, real-time tracking visualizations, and permission-based user journeys.',
+    tech: ['Figma', 'UI/UX Design', 'Data Visualization', 'Dashboard Design'],
+    category: 'UI/UX Design',
+    image: assetDashboardImg,
+    route: '/projects/asset-dashboard',
+    company: 'Personal Project'
+  },
+  {
+    title: 'Flyer Design',
+    description: 'Created a promotional flyer with strong visual emphasis and message clarity, focusing on layout design, typography hierarchy, and brand-driven color palettes.',
+    tech: ['Canva', 'Graphic Design', 'Branding', 'Typography'],
+    category: 'UI/UX Design',
+    image: flyerImg,
+    route: '/projects/flyer-design',
+    company: 'Graphic Design'
+  },
 ];
 
 const Projects = () => {

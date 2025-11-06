@@ -18,11 +18,13 @@ interface Collectible {
 
 const LandingGame = () => {
   const navigate = useNavigate();
-  const [spacecraft, setSpacecraft] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const [spacecraft, setSpacecraft] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 + 150 });
   const [selectedItem, setSelectedItem] = useState<Collectible | null>(null);
   const [collectedCount, setCollectedCount] = useState(0);
   const [showCTA, setShowCTA] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
+  const [showExitConfirmation, setShowExitConfirmation] = useState(false);
+  const [targetRoute, setTargetRoute] = useState<string | null>(null);
   const [keys, setKeys] = useState({ up: false, down: false, left: false, right: false });
   const gameContainerRef = useRef<HTMLDivElement>(null);
 
@@ -186,8 +188,8 @@ const LandingGame = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       setSpacecraft(prev => ({
-        x: prev.x + (e.clientX - prev.x) * 0.15, // Slower follow for more challenge
-        y: prev.y + (e.clientY - prev.y) * 0.15
+        x: prev.x + (e.clientX - prev.x) * 0.3, // Slower follow for more challenge
+        y: prev.y + (e.clientY - prev.y) * 0.3,
       }));
     };
 
@@ -226,11 +228,11 @@ const LandingGame = () => {
         {!gameStarted ? (
           <div className="flex-1 flex items-center justify-center px-4 sm:px-6 pt-20 sm:pt-0">
             <div className="text-center max-w-2xl">
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6">
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 text-white">
                 Hi, I'm <span className="text-highlight">Senu</span>
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 px-4">
-                Collect the glowing stars to explore my universe! Use arrow keys or move your mouse.
+                Collect the glowing stars to explore my universe! Use arrow keys or tap to move.
               </p>
               <div className="space-y-3 sm:space-y-4 px-4">
                 <Button 
@@ -342,7 +344,7 @@ const LandingGame = () => {
             {collectedCount < items.length && (
               <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 glass-card px-6 py-3 z-20">
                 <p className="text-sm text-muted-foreground text-center">
-                  Move your mouse or use arrow keys to collect all stars!
+                  Move your mouse or tap to collect all stars!
                 </p>
               </div>
             )}
@@ -405,8 +407,11 @@ const LandingGame = () => {
                   </div>
                   {selectedItem.id === 'projects' && (
                     <Button
-                      onClick={() => navigate('/projects')}
                       className="btn-primary w-full mt-6"
+                      onClick={() => {
+                        setTargetRoute('/projects');
+                        setShowExitConfirmation(true);
+                      }}
                     >
                       View All Projects
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -414,8 +419,11 @@ const LandingGame = () => {
                   )}
                   {selectedItem.id === 'beyond' && (
                     <Button
-                      onClick={() => navigate('/beyond-code')}
-                      className="btn-primary w-full mt-6"
+                      onClick={() => { // Changed to trigger confirmation
+                        setTargetRoute('/beyond-code');
+                        setShowExitConfirmation(true);
+                      }}
+                      className="btn-primary w-full mt-6" 
                     >
                       Explore Beyond Code
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -424,10 +432,44 @@ const LandingGame = () => {
                 </Card>
               </div>
             )}
+
+            {/* Exit Confirmation Dialog */}
+            {showExitConfirmation && (
+              <div className="fixed inset-0 flex items-center justify-center z-50 bg-background/90 backdrop-blur-sm p-4">
+                <Card className="glass-card p-8 max-w-md w-full text-center">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Wouldn't you want to finish collecting the stars?
+                  </h3>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <Button
+                      onClick={() => {
+                        setShowExitConfirmation(false);
+                        setTargetRoute(null);
+                        setSelectedItem(null); // Close the item info card too
+                      }}
+                      className="btn-primary px-6 py-3"
+                    >
+                      Yes, continue game
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        setShowExitConfirmation(false);
+                        setSelectedItem(null); // Close the item info card too
+                        if (targetRoute) navigate(targetRoute);
+                      }}
+                      className="btn-outline-primary px-6 py-3"
+                    >
+                      No, go to page
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            )}
           </>
         )}
       </div>
-      <Footer />
+      
     </div>
   );
 };
