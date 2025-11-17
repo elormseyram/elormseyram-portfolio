@@ -4,9 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Figma, ShoppingCart, Package, CreditCard, Gift, Repeat, Sparkles, Star, Truck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import yfEssentialsVideo from '@/assets/images/yf-essentials/yf-essentials-figmaprototype.mp4';
+import yfEssentialsImg1 from '@/assets/images/yf-essentials/yf-essentials1.jpg';
+import yfEssentialsImg2 from '@/assets/images/yf-essentials/yf-essentials2.jpg';
+import yfEssentialsImg3 from '@/assets/images/yf-essentials/yf-essentials3.jpg';
 
 const YFEssentials = () => {
   const navigate = useNavigate();
+  const screenshots = [yfEssentialsImg1, yfEssentialsImg2, yfEssentialsImg3];
 
   return (
     <div className="relative-content min-h-screen bg-background py-20 px-6">
@@ -51,6 +55,14 @@ const YFEssentials = () => {
   </Card>
 </div>
 
+        {/* Image Gallery */}
+        <div className="grid md:grid-cols-3 gap-4 mb-12">
+          {screenshots.map((img, index) => (
+            <Card key={index} className="glass-card p-0 overflow-hidden">
+              <img src={img} alt={`YF Essentials Screenshot ${index + 1}`} className="w-full h-auto" />
+            </Card>
+          ))}
+        </div>
 
         {/* Project Overview */}
         <section className="mb-16">

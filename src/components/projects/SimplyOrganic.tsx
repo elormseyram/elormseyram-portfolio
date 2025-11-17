@@ -1,19 +1,17 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Figma, Users, Zap, Shield } from 'lucide-react';
+import { ArrowLeft, Figma, ShoppingCart, Leaf, Package, Heart, Clock, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import ticketmateImg1 from '@/assets/images/ticketmate/ticketmate1.jpg';
-import ticketmateImg2 from '@/assets/images/ticketmate/ticketmate2.jpg';
-import ticketmateImg3 from '@/assets/images/ticketmate/ticketmate3.jpg';
-import ticketmateImg4 from '@/assets/images/ticketmate/ticketmate4.jpg';
-import ticketmateImg5 from '@/assets/images/ticketmate/ticketmate5.jpg';
-import ticketmateImg6 from '@/assets/images/ticketmate/ticketmate6.jpg';
-import ticketmateImg7 from '@/assets/images/ticketmate/ticketmate7.jpg';
+import simplyOrganicImg1 from '@/assets/images/simply-organic/simplyorganic1.jpg';
+import simplyOrganicImg2 from '@/assets/images/simply-organic/simplyorganic2.jpg';
+import simplyOrganicImg3 from '@/assets/images/simply-organic/simplyorganic3.jpg';
+import simplyOrganicImg4 from '@/assets/images/simply-organic/simplyorganic4.jpg';
+import simplyOrganicImg5 from '@/assets/images/simply-organic/simplyorganic5.jpg';
 
-const TicketMate = () => {
+const SimplyOrganic = () => {
   const navigate = useNavigate();
-  const screenshots = [ticketmateImg1, ticketmateImg2, ticketmateImg3, ticketmateImg4, ticketmateImg5, ticketmateImg6, ticketmateImg7];
+  const screenshots = [simplyOrganicImg1, simplyOrganicImg2, simplyOrganicImg3, simplyOrganicImg4, simplyOrganicImg5];
 
   return (
     <div className="relative-content min-h-screen bg-background py-20 px-6">
@@ -32,10 +30,10 @@ const TicketMate = () => {
             UI/UX Design
           </Badge>
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-highlight">TicketMate</span>
+            Simply <span className="text-highlight">Organic</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            A seamless ticket-booking experience for a school group project.
+            An e-commerce platform where people place gift orders for their loved ones, with customizable delivery time and location.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             <strong>Role:</strong> UI/UX Designer
@@ -46,7 +44,7 @@ const TicketMate = () => {
         <div className="grid md:grid-cols-2 gap-4 mb-12">
           {screenshots.map((img, index) => (
             <Card key={index} className="glass-card p-0 overflow-hidden">
-              <img src={img} alt={`TicketMate Screenshot ${index + 1}`} className="w-full h-auto" />
+              <img src={img} alt={`Simply Organic Screenshot ${index + 1}`} className="w-full h-auto" />
             </Card>
           ))}
         </div>
@@ -56,10 +54,10 @@ const TicketMate = () => {
             <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                TicketMate was a school group project focused on designing a user-friendly event booking platform. The primary goal was to create a seamless and intuitive experience for users to discover, book, and manage tickets for various events.
+                Simply Organic is an e-commerce platform designed for placing gift orders for loved ones. The platform allows users to select products, customize delivery times, and specify delivery locations, making it easy to send thoughtful organic gifts to friends and family.
               </p>
               <p className="font-semibold text-foreground">
-                My focus was on mapping the entire user journey, from event discovery to the final checkout process, ensuring every step was logical and easy to navigate.
+                The design focuses on creating a seamless gift-ordering experience with flexible delivery options, allowing users to personalize when and where their gifts are delivered to their loved ones.
               </p>
             </div>
           </Card>
@@ -71,29 +69,29 @@ const TicketMate = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-highlight flex items-center gap-2">
-                  <Users className="w-5 h-5" />
-                  User Flow Mapping
+                  <Heart className="w-5 h-5" />
+                  Gift Ordering
                 </h3>
                 <p className="text-muted-foreground">
-                  I developed detailed user flow diagrams for the entire event discovery and checkout process, identifying potential friction points and optimizing the path to purchase.
+                  Designed an intuitive gift ordering flow that makes it easy for users to select products and specify recipient details.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-highlight flex items-center gap-2">
-                  <Zap className="w-5 h-5" />
-                  High-Fidelity Interface
+                  <Clock className="w-5 h-5" />
+                  Customizable Delivery
                 </h3>
                 <p className="text-muted-foreground">
-                  Using Figma, I designed a high-fidelity user interface with a modern visual hierarchy. The design emphasized clarity, with clean layouts and a consistent visual language.
+                  Created flexible delivery time selection allowing users to schedule when gifts are delivered to their loved ones.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-highlight flex items-center gap-2">
-                  <Shield className="w-5 h-5" />
-                  Accessibility Focus
+                  <MapPin className="w-5 h-5" />
+                  Location Customization
                 </h3>
                 <p className="text-muted-foreground">
-                  I designed interaction patterns with accessibility in mind, ensuring adequate color contrast, readable typography, and keyboard-navigable elements to make the platform usable for everyone.
+                  Designed location selection and address management features for precise delivery to recipients.
                 </p>
               </div>
             </div>
@@ -117,10 +115,10 @@ const TicketMate = () => {
             <h2 className="text-3xl font-bold mb-6">What I Learned</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                <strong className="text-foreground">User-Centric Design:</strong> This project reinforced the importance of placing the user at the center of the design process. Mapping the user journey was crucial in creating an experience that felt natural and efficient.
+                <strong className="text-foreground">Sustainable Design:</strong> This project reinforced the importance of aligning design choices with brand values, particularly when designing for environmentally conscious consumers.
               </p>
               <p>
-                <strong className="text-foreground">Collaboration in a Team:</strong> Working as part of a group taught me valuable lessons in communication, feedback, and aligning on a shared design vision to achieve our project goals.
+                <strong className="text-foreground">E-commerce Best Practices:</strong> Designing for e-commerce requires careful consideration of conversion optimization while maintaining an authentic brand experience.
               </p>
             </div>
           </Card>
@@ -131,4 +129,5 @@ const TicketMate = () => {
   );
 };
 
-export default TicketMate;
+export default SimplyOrganic;
+

@@ -8,6 +8,11 @@ const Footer = () => {
   return (
     <footer className="py-8 sm:py-12 px-4 sm:px-6 border-t border-muted/20 bg-background/50 backdrop-blur-sm relative-content">
       <div className="max-w-6xl mx-auto">
+        {/* Logo */}
+        <div className="flex justify-center mb-6 sm:mb-8">
+          <img src="/seas-logo.png" alt="SEAS Logo" className="h-12 sm:h-16 w-auto" />
+        </div>
+        
         {/* Main Footer Content */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* About */}

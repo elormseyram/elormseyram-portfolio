@@ -12,12 +12,14 @@ import milautoImg1 from '@/assets/images/milautodrive/Milauto Drive - Your Trust
 import epunchImg1 from '@/assets/images/epunch/flutter-mobileapp/photo_1_2025-11-05_10-55-19.jpg';
 import workbookImg from '@/assets/images/workbook/dashboard-worbook.jpg';
 import yfEssentialsImg from '@/assets/images/yf-essentials/yf-essentials-figmaprototype.mp4';
-import ticketmateImg from '@/assets/ticketmate.jpg';
+import ticketmateImg from '@/assets/images/ticketmate/ticketmate1.jpg';
 import biciImg from '@/assets/bici image.jpg';
 import cleanseGuruImg from '@/assets/cleanseguru.jpg';
 import chirpImg from '@/assets/chirp.jpg';
 import assetDashboardImg from '@/assets/assetdashboard.jpg';
 import flyerImg from '@/assets/flyer.jpg';
+import bugbudImg from '@/assets/images/bugbud/bugbud1.jpg';
+import simplyOrganicImg from '@/assets/images/simply-organic/simplyorganic1.jpg';
 
 interface Project {
   title: string;
@@ -119,6 +121,24 @@ const projects: Project[] = [
     image: flyerImg,
     route: '/projects/flyer-design',
     company: 'Graphic Design'
+  },
+  {
+    title: 'BugBud',
+    description: 'A ticketing and feedback app designed in Figma and coded in Flutter, helping teams efficiently track issues and collect user feedback.',
+    tech: ['Figma', 'Flutter', 'UI/UX Design', 'Mobile Development'],
+    category: 'UI/UX Design',
+    image: bugbudImg,
+    route: '/projects/bugbud',
+    company: 'Personal Project'
+  },
+  {
+    title: 'Simply Organic',
+    description: 'An e-commerce platform where people place gift orders for their loved ones, with customizable delivery time and location.',
+    tech: ['Figma', 'UI/UX Design', 'E-commerce', 'Gift Ordering'],
+    category: 'UI/UX Design',
+    image: simplyOrganicImg,
+    route: '/projects/simply-organic',
+    company: 'Personal Project'
   },
 ];
 

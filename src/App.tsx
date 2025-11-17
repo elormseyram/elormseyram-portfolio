@@ -21,6 +21,8 @@ import CleanseGuru from './components/projects/CleanseGuru';
 import Chirp from './components/projects/Chirp';
 import AssetDashboard from './components/projects/AssetDashboard';
 import FlyerDesign from './components/projects/Flyer';
+import BugBud from './components/projects/BugBud';
+import SimplyOrganic from './components/projects/SimplyOrganic';
 
 
 const queryClient = new QueryClient();
@@ -49,6 +51,8 @@ const App = () => (
           <Route path="/projects/chirp" element={<Chirp />} />
           <Route path="/projects/asset-dashboard" element={<AssetDashboard />} />
           <Route path="/projects/flyer" element={<FlyerDesign />} />
+          <Route path="/projects/bugbud" element={<BugBud />} />
+          <Route path="/projects/simply-organic" element={<SimplyOrganic />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

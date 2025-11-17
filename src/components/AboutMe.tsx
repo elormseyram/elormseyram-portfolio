@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
 import { 
   Figma, 
   Code2, 
@@ -9,12 +12,66 @@ import {
   Zap, 
   Server,
   Database,
-  Layers
+  Layers,
+  Heart,
+  MessageCircle,
+  Send
 } from 'lucide-react';
+
+interface Comment {
+  id: string;
+  author: string;
+  text: string;
+  likes: number;
+  liked: boolean;
+  replies: Reply[];
+  timestamp: Date;
+}
+
+interface Reply {
+  id: string;
+  author: string;
+  text: string;
+  likes: number;
+  liked: boolean;
+  timestamp: Date;
+}
 
 const AboutMe = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
+  const [comments, setComments] = useState<Comment[]>([
+    {
+      id: '1',
+      author: 'Rahrah',
+      text: "She's never met a friend like me before, smart and I'm the most go to person ever.",
+      likes: 0,
+      liked: false,
+      replies: [],
+      timestamp: new Date()
+    },
+    {
+      id: '2',
+      author: 'Lily',
+      text: "I'm someone who listens without judgement.",
+      likes: 0,
+      liked: false,
+      replies: [],
+      timestamp: new Date()
+    },
+    {
+      id: '3',
+      author: 'Afriyie',
+      text: 'I like fooling too much.',
+      likes: 0,
+      liked: false,
+      replies: [],
+      timestamp: new Date()
+    }
+  ]);
+  const [newComment, setNewComment] = useState({ author: '', text: '' });
+  const [replyingTo, setReplyingTo] = useState<string | null>(null);
+  const [replyText, setReplyText] = useState<{ [key: string]: { author: string; text: string } }>({});
 
   const skills = [
     { name: 'Flutter', icon: Smartphone, color: 'text-primary', description: 'Build cross-platform mobile apps with expressive UI using Flutter.' },
@@ -49,6 +106,9 @@ const AboutMe = () => {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 scroll-reveal">
+          <div className="flex justify-center mb-6">
+            <img src="/seas-logo.png" alt="SEAS Logo" className="h-24 sm:h-32 w-auto" />
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className="text-highlight">Me</span>
           </h2>
@@ -156,6 +216,197 @@ const AboutMe = () => {
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* What My Friends Say About Me */}
+        <div className="mt-16 scroll-reveal">
+          <h3 className="text-2xl font-semibold mb-8 text-center">
+            What My <span className="text-highlight">Friends</span> Say About Me
+          </h3>
+          
+          {/* Friends' Comments */}
+          <div className="space-y-4 mb-8">
+            {comments.map((comment) => (
+              <Card key={comment.id} className="glass-card p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h4 className="font-semibold text-highlight">{comment.author}</h4>
+                    <p className="text-xs text-muted-foreground">
+                      {comment.timestamp.toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4">{comment.text}</p>
+                
+                {/* Like and Reply Buttons */}
+                <div className="flex items-center gap-4 mb-3">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setComments(comments.map(c => 
+                        c.id === comment.id 
+                          ? { ...c, likes: c.liked ? c.likes - 1 : c.likes + 1, liked: !c.liked }
+                          : c
+                      ));
+                    }}
+                    className={`${comment.liked ? 'text-primary' : ''}`}
+                  >
+                    <Heart className={`w-4 h-4 mr-1 ${comment.liked ? 'fill-current' : ''}`} />
+                    {comment.likes}
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)}
+                  >
+                    <MessageCircle className="w-4 h-4 mr-1" />
+                    Reply
+                  </Button>
+                </div>
+
+                {/* Reply Input */}
+                {replyingTo === comment.id && (
+                  <div className="mb-4 pl-4 border-l-2 border-primary/20">
+                    <Input
+                      placeholder="Your name"
+                      value={replyText[comment.id]?.author || ''}
+                      onChange={(e) => {
+                        setReplyText({ 
+                          ...replyText, 
+                          [comment.id]: { 
+                            author: e.target.value, 
+                            text: replyText[comment.id]?.text || '' 
+                          } 
+                        });
+                      }}
+                      className="mb-2"
+                    />
+                    <div className="flex gap-2">
+                      <Textarea
+                        placeholder="Write a reply..."
+                        value={replyText[comment.id]?.text || ''}
+                        onChange={(e) => {
+                          setReplyText({ 
+                            ...replyText, 
+                            [comment.id]: { 
+                              author: replyText[comment.id]?.author || '', 
+                              text: e.target.value 
+                            } 
+                          });
+                        }}
+                        className="flex-1"
+                        rows={2}
+                      />
+                      <Button
+                        size="sm"
+                        onClick={() => {
+                          const reply = replyText[comment.id];
+                          if (reply?.author && reply?.text) {
+                            const newReply: Reply = {
+                              id: Date.now().toString(),
+                              author: reply.author,
+                              text: reply.text,
+                              likes: 0,
+                              liked: false,
+                              timestamp: new Date()
+                            };
+                            setComments(comments.map(c => 
+                              c.id === comment.id 
+                                ? { ...c, replies: [...c.replies, newReply] }
+                                : c
+                            ));
+                            const updated = { ...replyText };
+                            delete updated[comment.id];
+                            setReplyText(updated);
+                            setReplyingTo(null);
+                          }
+                        }}
+                      >
+                        <Send className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Replies */}
+                {comment.replies.length > 0 && (
+                  <div className="mt-4 pl-4 border-l-2 border-primary/20 space-y-3">
+                    {comment.replies.map((reply) => (
+                      <div key={reply.id} className="bg-card/50 p-3 rounded-lg">
+                        <div className="flex items-start justify-between mb-2">
+                          <div>
+                            <h5 className="font-semibold text-sm text-highlight">{reply.author}</h5>
+                            <p className="text-xs text-muted-foreground">
+                              {reply.timestamp.toLocaleDateString()}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-2">{reply.text}</p>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setComments(comments.map(c => ({
+                              ...c,
+                              replies: c.replies.map(r => 
+                                r.id === reply.id 
+                                  ? { ...r, likes: r.liked ? r.likes - 1 : r.likes + 1, liked: !r.liked }
+                                  : r
+                              )
+                            })));
+                          }}
+                          className={`text-xs ${reply.liked ? 'text-primary' : ''}`}
+                        >
+                          <Heart className={`w-3 h-3 mr-1 ${reply.liked ? 'fill-current' : ''}`} />
+                          {reply.likes}
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+
+          {/* Add Comment Section */}
+          <Card className="glass-card p-6">
+            <h4 className="text-lg font-semibold mb-4">What do you have to say about me?</h4>
+            <div className="space-y-3">
+              <Input
+                placeholder="Your name"
+                value={newComment.author}
+                onChange={(e) => setNewComment({ ...newComment, author: e.target.value })}
+              />
+              <Textarea
+                placeholder="Share your thoughts..."
+                value={newComment.text}
+                onChange={(e) => setNewComment({ ...newComment, text: e.target.value })}
+                rows={4}
+              />
+              <Button
+                onClick={() => {
+                  if (newComment.author && newComment.text) {
+                    const comment: Comment = {
+                      id: Date.now().toString(),
+                      author: newComment.author,
+                      text: newComment.text,
+                      likes: 0,
+                      liked: false,
+                      replies: [],
+                      timestamp: new Date()
+                    };
+                    setComments([...comments, comment]);
+                    setNewComment({ author: '', text: '' });
+                  }
+                }}
+                className="w-full sm:w-auto"
+              >
+                <Send className="w-4 h-4 mr-2" />
+                Post Comment
+              </Button>
+            </div>
+          </Card>
         </div>
       </div>
     </section>

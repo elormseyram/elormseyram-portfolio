@@ -1,19 +1,16 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Figma, Users, Zap, Shield } from 'lucide-react';
+import { ArrowLeft, Figma, Bug, Search, Shield, CheckSquare, Smartphone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import ticketmateImg1 from '@/assets/images/ticketmate/ticketmate1.jpg';
-import ticketmateImg2 from '@/assets/images/ticketmate/ticketmate2.jpg';
-import ticketmateImg3 from '@/assets/images/ticketmate/ticketmate3.jpg';
-import ticketmateImg4 from '@/assets/images/ticketmate/ticketmate4.jpg';
-import ticketmateImg5 from '@/assets/images/ticketmate/ticketmate5.jpg';
-import ticketmateImg6 from '@/assets/images/ticketmate/ticketmate6.jpg';
-import ticketmateImg7 from '@/assets/images/ticketmate/ticketmate7.jpg';
+import bugbudImg1 from '@/assets/images/bugbud/bugbud1.jpg';
+import bugbudImg2 from '@/assets/images/bugbud/bugbud2.jpg';
+import bugbudImg3 from '@/assets/images/bugbud/bugbud3.jpg';
+import bugbudImg4 from '@/assets/images/bugbud/bugbud4.jpg';
 
-const TicketMate = () => {
+const BugBud = () => {
   const navigate = useNavigate();
-  const screenshots = [ticketmateImg1, ticketmateImg2, ticketmateImg3, ticketmateImg4, ticketmateImg5, ticketmateImg6, ticketmateImg7];
+  const screenshots = [bugbudImg1, bugbudImg2, bugbudImg3, bugbudImg4];
 
   return (
     <div className="relative-content min-h-screen bg-background py-20 px-6">
@@ -29,16 +26,16 @@ const TicketMate = () => {
 
         <div className="mb-12">
           <Badge className="mb-4 bg-primary/20 text-primary border-primary/30">
-            UI/UX Design
+            UI/UX Design & Flutter Development
           </Badge>
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-highlight">TicketMate</span>
+            <span className="text-highlight">BugBud</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            A seamless ticket-booking experience for a school group project.
+            A ticketing and feedback app designed in Figma and coded in Flutter, helping teams efficiently track issues and collect user feedback.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            <strong>Role:</strong> UI/UX Designer
+            <strong>Role:</strong> UI/UX Designer & Flutter Developer
           </p>
         </div>
 
@@ -46,7 +43,7 @@ const TicketMate = () => {
         <div className="grid md:grid-cols-2 gap-4 mb-12">
           {screenshots.map((img, index) => (
             <Card key={index} className="glass-card p-0 overflow-hidden">
-              <img src={img} alt={`TicketMate Screenshot ${index + 1}`} className="w-full h-auto" />
+              <img src={img} alt={`BugBud Screenshot ${index + 1}`} className="w-full h-auto" />
             </Card>
           ))}
         </div>
@@ -56,10 +53,10 @@ const TicketMate = () => {
             <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                TicketMate was a school group project focused on designing a user-friendly event booking platform. The primary goal was to create a seamless and intuitive experience for users to discover, book, and manage tickets for various events.
+                BugBud is a ticketing and feedback application designed to help teams efficiently track issues and collect user feedback. The project started with comprehensive UI/UX design in Figma, followed by full implementation in Flutter.
               </p>
               <p className="font-semibold text-foreground">
-                My focus was on mapping the entire user journey, from event discovery to the final checkout process, ensuring every step was logical and easy to navigate.
+                I designed the entire user interface and user experience in Figma, then brought it to life by coding the complete application in Flutter, creating a seamless mobile experience for ticket management and feedback collection.
               </p>
             </div>
           </Card>
@@ -71,29 +68,29 @@ const TicketMate = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-highlight flex items-center gap-2">
-                  <Users className="w-5 h-5" />
-                  User Flow Mapping
+                  <Bug className="w-5 h-5" />
+                  Bug Tracking UI
                 </h3>
                 <p className="text-muted-foreground">
-                  I developed detailed user flow diagrams for the entire event discovery and checkout process, identifying potential friction points and optimizing the path to purchase.
+                  Designed an intuitive interface for reporting, tracking, and managing bugs with clear status indicators and filtering capabilities.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-highlight flex items-center gap-2">
-                  <Zap className="w-5 h-5" />
-                  High-Fidelity Interface
+                  <Search className="w-5 h-5" />
+                  Advanced Search
                 </h3>
                 <p className="text-muted-foreground">
-                  Using Figma, I designed a high-fidelity user interface with a modern visual hierarchy. The design emphasized clarity, with clean layouts and a consistent visual language.
+                  Created powerful search and filter interfaces that allow teams to quickly find and organize bugs by various criteria.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-highlight flex items-center gap-2">
                   <Shield className="w-5 h-5" />
-                  Accessibility Focus
+                  User Experience
                 </h3>
                 <p className="text-muted-foreground">
-                  I designed interaction patterns with accessibility in mind, ensuring adequate color contrast, readable typography, and keyboard-navigable elements to make the platform usable for everyone.
+                  Focused on creating a user-friendly experience that reduces friction in bug reporting and resolution workflows.
                 </p>
               </div>
             </div>
@@ -102,11 +99,15 @@ const TicketMate = () => {
 
         <section className="mb-16">
           <Card className="glass-card p-8">
-            <h2 className="text-3xl font-bold mb-6">Tools Used</h2>
+            <h2 className="text-3xl font-bold mb-6">Tools & Technologies</h2>
             <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 p-3 glass-card rounded-lg">
                   <Figma className="w-6 h-6 text-highlight" />
                   <span className="text-sm font-medium">Figma</span>
+                </div>
+                <div className="flex items-center gap-2 p-3 glass-card rounded-lg">
+                  <Smartphone className="w-6 h-6 text-highlight" />
+                  <span className="text-sm font-medium">Flutter</span>
                 </div>
             </div>
           </Card>
@@ -117,10 +118,10 @@ const TicketMate = () => {
             <h2 className="text-3xl font-bold mb-6">What I Learned</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                <strong className="text-foreground">User-Centric Design:</strong> This project reinforced the importance of placing the user at the center of the design process. Mapping the user journey was crucial in creating an experience that felt natural and efficient.
+                <strong className="text-foreground">Information Architecture:</strong> This project taught me the importance of organizing complex information in a way that is both comprehensive and easy to navigate.
               </p>
               <p>
-                <strong className="text-foreground">Collaboration in a Team:</strong> Working as part of a group taught me valuable lessons in communication, feedback, and aligning on a shared design vision to achieve our project goals.
+                <strong className="text-foreground">Developer Tools Design:</strong> Designing for developers requires understanding their workflows and creating interfaces that enhance productivity rather than hinder it.
               </p>
             </div>
           </Card>
@@ -131,4 +132,5 @@ const TicketMate = () => {
   );
 };
 
-export default TicketMate;
+export default BugBud;
+
