@@ -228,9 +228,12 @@ const LandingGame = () => {
         {!gameStarted ? (
           <div className="flex-1 flex items-center justify-center px-4 sm:px-6 pt-20 sm:pt-0">
             <div className="text-center max-w-2xl">
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 text-white">
-                Hi, I'm <span className="text-highlight">Senu</span>
-              </h1>
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <img src="/seas-logo.png" alt="SEAS Logo" className="h-12 sm:h-16 md:h-20 w-auto" />
+                <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white">
+                  Hi, I'm <span className="text-highlight">Senu</span>
+                </h1>
+              </div>
               <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 px-4">
                 Collect the glowing stars to explore my universe! Use arrow keys or tap to move.
               </p>

@@ -1,4 +1,5 @@
 import { Heart, Code2, Mail, Github, Linkedin, Globe, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -14,7 +15,7 @@ const Footer = () => {
         </div>
         
         {/* Main Footer Content */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8 justify-items-center md:justify-items-start">
           {/* About */}
           <div>
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-highlight">About</h3>
@@ -29,24 +30,24 @@ const Footer = () => {
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-highlight">Quick Links</h3>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <a href="/" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">
                   About Me
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/projects" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/projects" className="text-muted-foreground hover:text-primary transition-colors">
                   Projects
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -98,14 +99,16 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="border-t border-muted/20 pt-6 sm:pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col items-center gap-4">
             {/* Copyright */}
-            <div className="text-center md:text-left">
+            <div className="text-center">
               <p className="text-xs sm:text-sm text-muted-foreground">
                 © {new Date().getFullYear()} Senu Seyram Elorm Adzo. All rights reserved.
               </p>
               <p className="text-xs text-muted-foreground/70 mt-1">
-                <span className="text-highlight">That woman? Definitely!</span> • Crafted with React, TypeScript, and a lot of ☕
+                <span className="text-highlight">beauty</span> in UI, 
+                <span className="text-foreground"> brains</span> in 
+                <span className="text-highlight"> VS Code</span> • Crafted with React, TypeScript, and a lot of ☕
               </p>
             </div>
 
@@ -123,9 +126,7 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 mt-4 sm:mt-6">
             <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-primary animate-pulse" />
             <span className="text-xs sm:text-sm font-medium text-muted-foreground text-center">
-              <span className="text-highlight">beauty</span> in UI, 
-              <span className="text-foreground"> brains</span> in 
-              <span className="text-highlight"> VS Code</span>.
+              <span className="text-highlight">That woman? Definitely!</span>
             </span>
             <Code2 className="w-3 h-3 sm:w-4 sm:h-4 text-primary animate-pulse" />
           </div>

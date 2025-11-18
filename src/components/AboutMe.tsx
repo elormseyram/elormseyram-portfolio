@@ -107,7 +107,7 @@ const AboutMe = () => {
         {/* Section Header */}
         <div className="text-center mb-16 scroll-reveal">
           <div className="flex justify-center mb-6">
-            <img src="/seas-logo.png" alt="SEAS Logo" className="h-24 sm:h-32 w-auto" />
+            <img src="/seas-logo.png" alt="SEAS Logo" className="h-32 sm:h-40 w-auto" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className="text-highlight">Me</span>
