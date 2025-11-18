@@ -15,9 +15,9 @@ const Footer = () => {
         </div>
         
         {/* Main Footer Content */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8 justify-items-center md:justify-items-start">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8 justify-items-center text-center">
           {/* About */}
-          <div>
+          <div className="flex flex-col items-center gap-3 max-w-xs">
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-highlight">About</h3>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
               UI/UX Designer, Front-End Developer, and QA Engineer passionate about creating 
@@ -26,9 +26,9 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col items-center gap-3">
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-highlight">Quick Links</h3>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm flex flex-col items-center">
               <li>
                 <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
                   Home
@@ -53,9 +53,9 @@ const Footer = () => {
           </div>
 
           {/* Connect */}
-          <div className="sm:col-span-2 md:col-span-1">
+          <div className="sm:col-span-2 md:col-span-1 flex flex-col items-center gap-3 text-center">
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-highlight">Connect</h3>
-            <div className="flex gap-3 sm:gap-4 mb-3 sm:mb-4">
+            <div className="flex gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center">
               <a
                 href="https://github.com/elormseyram"
                 target="_blank"

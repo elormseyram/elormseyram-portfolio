@@ -98,6 +98,10 @@
     font-family: 'Cascadia Code', 'Courier New', monospace;
     overflow-x: hidden;
     position: relative;
+    min-height: 100%;
+    width: 100%;
+    overscroll-behavior: none;
+    touch-action: pan-y;
   }
 
   body::before {
@@ -129,6 +133,16 @@
 
   html {
     scroll-behavior: smooth;
+    min-height: 100%;
+    width: 100%;
+    overscroll-behavior: none;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100%;
+    width: 100%;
+    overflow-x: hidden;
   }
 }
 

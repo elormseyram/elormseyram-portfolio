@@ -25,7 +25,7 @@ interface Comment {
   likes: number;
   liked: boolean;
   replies: Reply[];
-  timestamp: Date;
+  timestamp: string;
 }
 
 interface Reply {
@@ -34,44 +34,59 @@ interface Reply {
   text: string;
   likes: number;
   liked: boolean;
-  timestamp: Date;
+  timestamp: string;
 }
+
+const COMMENTS_STORAGE_KEY = 'about-friends-comments';
+
+const defaultComments: Comment[] = [
+  {
+    id: '1',
+    author: 'Rahrah',
+    text: "She's never met a friend like me before, smart and I'm the most go to person ever.",
+    likes: 0,
+    liked: false,
+    replies: [],
+    timestamp: new Date().toISOString()
+  },
+  {
+    id: '2',
+    author: 'Lily',
+    text: "I'm someone who listens without judgement.",
+    likes: 0,
+    liked: false,
+    replies: [],
+    timestamp: new Date().toISOString()
+  },
+  {
+    id: '3',
+    author: 'Afriyie',
+    text: 'I like fooling too much.',
+    likes: 0,
+    liked: false,
+    replies: [],
+    timestamp: new Date().toISOString()
+  }
+];
 
 const AboutMe = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
-  const [comments, setComments] = useState<Comment[]>([
-    {
-      id: '1',
-      author: 'Rahrah',
-      text: "She's never met a friend like me before, smart and I'm the most go to person ever.",
-      likes: 0,
-      liked: false,
-      replies: [],
-      timestamp: new Date()
-    },
-    {
-      id: '2',
-      author: 'Lily',
-      text: "I'm someone who listens without judgement.",
-      likes: 0,
-      liked: false,
-      replies: [],
-      timestamp: new Date()
-    },
-    {
-      id: '3',
-      author: 'Afriyie',
-      text: 'I like fooling too much.',
-      likes: 0,
-      liked: false,
-      replies: [],
-      timestamp: new Date()
+  const [comments, setComments] = useState<Comment[]>(() => {
+    if (typeof window === 'undefined') {
+      return defaultComments;
     }
-  ]);
+    try {
+      const stored = localStorage.getItem(COMMENTS_STORAGE_KEY);
+      return stored ? JSON.parse(stored) : defaultComments;
+    } catch {
+      return defaultComments;
+    }
+  });
   const [newComment, setNewComment] = useState({ author: '', text: '' });
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [replyText, setReplyText] = useState<{ [key: string]: { author: string; text: string } }>({});
+  const hasHydrated = useRef(false);
 
   const skills = [
     { name: 'Flutter', icon: Smartphone, color: 'text-primary', description: 'Build cross-platform mobile apps with expressive UI using Flutter.' },
@@ -101,6 +116,23 @@ const AboutMe = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (!hasHydrated.current) {
+      const stored = localStorage.getItem(COMMENTS_STORAGE_KEY);
+      if (stored) {
+        try {
+          setComments(JSON.parse(stored));
+        } catch {
+          localStorage.removeItem(COMMENTS_STORAGE_KEY);
+        }
+      }
+      hasHydrated.current = true;
+      return;
+    }
+    localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(comments));
+  }, [comments]);
+
   return (
     <section ref={sectionRef} className="relative-content py-12 px-6">
       <div className="max-w-6xl mx-auto">
@@ -125,14 +157,15 @@ const AboutMe = () => {
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
                   No, I'm not a jack of all trades - I'm just a simple girl with strong knowledge in{' '}
-                  <span className="text-highlight font-medium">Flutter</span>,{' '}
+                  <span className="text-highlight font-medium">UI/UX design</span> with{' '}
+                  <span className="text-highlight font-medium">Figma</span>,{' '}
                   <span className="text-highlight font-medium">Dart</span>, and{' '}
-                  <span className="text-highlight font-medium">UI/UX design</span> using Flutter.
+                  <span className="text-highlight font-medium">Flutter</span>.
                 </p>
                 <p>
-                  Based in Tema, Ghana, I focus on creating mobile experiences that are not just 
+                  Residing in Tema, Ghana, I focus on creating mobile experiences that are not just 
                   visually stunning, but also highly functional and user-centered. My expertise in 
-                  Flutter allows me to bridge the gap between design and development, creating 
+                  UI/UX design and Flutter allows me to bridge the gap between design and development, creating 
                   seamless mobile applications.
                 </p>
                 <p>
@@ -232,7 +265,7 @@ const AboutMe = () => {
                   <div>
                     <h4 className="font-semibold text-highlight">{comment.author}</h4>
                     <p className="text-xs text-muted-foreground">
-                      {comment.timestamp.toLocaleDateString()}
+                      {new Date(comment.timestamp).toLocaleDateString()}
                     </p>
                   </div>
                 </div>
@@ -309,7 +342,7 @@ const AboutMe = () => {
                               text: reply.text,
                               likes: 0,
                               liked: false,
-                              timestamp: new Date()
+                              timestamp: new Date().toISOString()
                             };
                             setComments(comments.map(c => 
                               c.id === comment.id 
@@ -338,7 +371,7 @@ const AboutMe = () => {
                           <div>
                             <h5 className="font-semibold text-sm text-highlight">{reply.author}</h5>
                             <p className="text-xs text-muted-foreground">
-                              {reply.timestamp.toLocaleDateString()}
+                              {new Date(reply.timestamp).toLocaleDateString()}
                             </p>
                           </div>
                         </div>
@@ -394,7 +427,7 @@ const AboutMe = () => {
                       likes: 0,
                       liked: false,
                       replies: [],
-                      timestamp: new Date()
+                      timestamp: new Date().toISOString()
                     };
                     setComments([...comments, comment]);
                     setNewComment({ author: '', text: '' });
