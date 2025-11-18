@@ -98,10 +98,17 @@
     font-family: 'Cascadia Code', 'Courier New', monospace;
     overflow-x: hidden;
     position: relative;
-    min-height: 100%;
+    min-height: 100vh;
     width: 100%;
     overscroll-behavior: none;
-    touch-action: pan-y;
+    overscroll-behavior-y: none;
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+    /* Prevent mobile shake */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 
   body::before {
@@ -133,16 +140,58 @@
 
   html {
     scroll-behavior: smooth;
-    min-height: 100%;
+    min-height: 100vh;
     width: 100%;
     overscroll-behavior: none;
+    overscroll-behavior-y: none;
     overflow-x: hidden;
+    /* Prevent mobile shake */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   #root {
-    min-height: 100%;
+    min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
+    position: relative;
+    /* Prevent mobile shake */
+    transform: translateZ(0);
+    will-change: scroll-position;
+  }
+  
+  /* Prevent mobile viewport issues */
+  @media (max-width: 768px) {
+    html, body {
+      position: relative;
+      width: 100%;
+      height: auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
+    }
+    
+    #root {
+      min-height: 100vh;
+      height: auto;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    
+    /* Prevent horizontal scroll on mobile */
+    * {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    
+    /* Fix for iOS Safari bounce and shake */
+    body {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
 

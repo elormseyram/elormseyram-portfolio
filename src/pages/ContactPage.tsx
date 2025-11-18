@@ -950,12 +950,20 @@ const ContactPage = () => {
         to_email: 'elormseyram@theseas.tech'
       };
 
-      await emailjs.send(
+      console.log('Sending email with EmailJS:', {
+        serviceId: EMAILJS_SERVICE_ID,
+        templateId: EMAILJS_TEMPLATE_ID,
+        hasPublicKey: !!EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'
+      });
+
+      const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
         EMAILJS_PUBLIC_KEY
       );
+      
+      console.log('EmailJS response:', response);
 
       // Success
       setPlayerName(formData.name || 'Guest Hooper');
@@ -967,12 +975,29 @@ const ContactPage = () => {
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Form submission error:', error);
       setIsSubmitting(false);
+      
+      // Provide more specific error messages
+      let errorMessage = 'There was an error sending your message.';
+      
+      if (error?.text) {
+        // EmailJS specific errors
+        if (error.text.includes('Invalid') || error.text.includes('invalid')) {
+          errorMessage = 'EmailJS configuration error. Please check your Service ID, Template ID, and Public Key.';
+        } else if (error.text.includes('quota') || error.text.includes('limit')) {
+          errorMessage = 'Email sending limit reached. Please try again later or email directly.';
+        } else {
+          errorMessage = `EmailJS error: ${error.text}`;
+        }
+      } else if (error?.message) {
+        errorMessage = error.message;
+      }
+      
       toast({
         title: 'Failed to send message',
-        description: 'There was an error sending your message. Please try again or email directly at elormseyram@theseas.tech',
+        description: `${errorMessage} Please try again or email directly at elormseyram@theseas.tech`,
         variant: 'destructive'
       });
     }
@@ -1106,14 +1131,6 @@ const ContactPage = () => {
                       </div>
                     )}
                   </Button>
-                  
-                  <div className="mt-4 p-3 rounded-lg bg-muted/20 border border-muted/40">
-                    <p className="text-xs text-muted-foreground text-center">
-                      <Mail className="w-3 h-3 inline mr-1" />
-                      Messages are sent directly to <strong className="text-foreground">elormseyram@theseas.tech</strong> via EmailJS. 
-                      You'll receive them instantly in your inbox!
-                    </p>
-                  </div>
                 </form>
               )}
 
